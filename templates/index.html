@@ -2,9 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>My Community</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="../static/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            $('#form_register_div').hide();
+        });
+
+        function register(){
+            $(function(){
+                $('#form_login_div').fadeOut(1000);
+                $('#form_register_div').fadeIn(2000);
+            });
+        }
+        function login(){
+            $(function(){
+                $('#form_register_div').hide();
+                $('#form_login_div').fadeIn(1000);
+            });
+        }
+    </script>
 </head>
 <body>
-
+    <div align="center">
+        {% if username %}
+            <h1>欢迎{{ username }}</h1>
+        {% else %}
+            <h1>欢迎陌生人</h1>
+        {% end %}
+    </div>
+    <div id="form_login_div">
+        <form action="" name="form_login" method="post">
+            <input type="text" name="email" placeholder="email:" required="required" />
+            <br/>
+            <input type="password" name="password" placeholder="password:" required="required" />
+            <br/>
+            <input type="button" value="Register" onclick="register()" />
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+    <div id="form_register_div">
+        <form action="" name="form_register" method="post">
+            <input type="text" name="username" placeholder="username:" required="required" />
+            <br/>
+            <input type="text" name="email" placeholder="email:" required="required" />
+            <br/>
+            <input type="password" name="password" placeholder="password:" required="required" />
+            <br/>
+            <input type="password" name="password2" placeholder="password2:" required="required" />
+            <br/>
+            <input type="button" value="Login" onclick="login()" />
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
 </body>
 </html>
