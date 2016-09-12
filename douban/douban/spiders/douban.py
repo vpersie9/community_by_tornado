@@ -41,8 +41,8 @@ class MainSpider(CrawlSpider):
     post_data={
             'source':'index_nav',
             'redir':'https://www.douban.com/',
-            'form_email':'834538028@qq.com',
-            'form_password':'jing521jing',
+            'form_email':'83***8@**.com',
+            'form_password':'j***j***',
             'captcha-solution':'',
             'captcha-id':'',
             'login':u'登录'
