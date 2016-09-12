@@ -1,61 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends "base.html" %}
 <head>
     <meta charset="UTF-8">
     <title>My Community</title>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <script type="text/javascript" src="../static/jquery-1.9.1.min.js"></script>
+    {% block css %}
+       {{ super() }}
+        <style type="text/css">
+            #form_login_div{
+                margin-right: 700px;
+            }
+            #form_register_div{
+                margin-right: 700px;
+            }
+        </style>
+    {% endblock %}
+    {% block script %}
+    {{ super() }}
     <script type="text/javascript">
-
         $(function(){
             $('#form_register_div').hide();
         });
 
         function register(){
             $(function(){
-                $('#form_login_div').fadeOut(1000);
-                $('#form_register_div').fadeIn(2000);
+                $('#form_login_div').hide();
+                $('#form_register_div').show();
             });
         }
         function login(){
             $(function(){
                 $('#form_register_div').hide();
-                $('#form_login_div').fadeIn(1000);
+                $('#form_login_div').show();
             });
         }
     </script>
+    {% endblock %}
 </head>
 <body>
-    <div align="center">
-        {% if username %}
-            <h1>欢迎{{ username }}</h1>
-        {% else %}
-            <h1>欢迎陌生人</h1>
-        {% end %}
+    {% block page_content %}
+    <div id="title">
+        <h1>Welcome Guy</h1>
     </div>
-    <div id="form_login_div">
+    <br/>
+    <div id="form_login_div" >
         <form action="" name="form_login" method="post">
-            <input type="text" name="email" placeholder="email:" required="required" />
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">@</span>
+              <input type="text" class="form-control" name="email" placeholder="email:" required="required" />
+            </div>
             <br/>
-            <input type="password" name="password" placeholder="password:" required="required" />
             <br/>
-            <input type="button" value="Register" onclick="register()" />
-            <input type="submit" value="Submit" />
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">@</span>
+              <input type="password" class="form-control" name="password" placeholder="password:" required="required" />
+            </div>
+            <br/>
+            <br/>
+            <div class="btn-group-lg">
+            <input type="button" class="btn btn-primary" value="Register" onclick="register()"/>
+            <input type="submit" class="btn btn-success" value="Submit" style="margin-left: 40px"/>
+            </div>
         </form>
     </div>
-    <div id="form_register_div">
+    <div id="form_register_div" align="center">
         <form action="" name="form_register" method="post">
-            <input type="text" name="username" placeholder="username:" required="required" />
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">@</span>
+              <input type="text" class="form-control" name="username" placeholder="username:" required="required" />
+            </div>
             <br/>
-            <input type="text" name="email" placeholder="email:" required="required" />
             <br/>
-            <input type="password" name="password" placeholder="password:" required="required" />
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">@</span>
+              <input type="text" class="form-control" name="email" placeholder="email:" required="required" />
+            </div>
             <br/>
-            <input type="password" name="password2" placeholder="password2:" required="required" />
             <br/>
-            <input type="button" value="Login" onclick="login()" />
-            <input type="submit" value="Submit" />
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">@</span>
+              <input type="password" class="form-control" name="password" placeholder="password:" required="required" />
+            </div>
+            <br/>
+            <br/>
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">@</span>
+              <input type="password" class="form-control" name="password2" placeholder="password:" required="required" />
+            </div>
+            <br/>
+            <br/>
+            <div class="btn-group-lg">
+            <input type="button" class="btn btn-primary" value="Login" onclick="login()" style="float: left"/>
+            <input type="submit" class="btn btn-success" value="Submit" />
+            </div>
         </form>
     </div>
+    {% endblock %}
 </body>
 </html>

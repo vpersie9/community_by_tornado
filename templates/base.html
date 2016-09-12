@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    {% block header %}
+        <title>{% block title %}@Vpersie9{% endblock %}</title>
+    {% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    {% endblock %}
+    {% block script %}
+    <script type="text/javascript" src="../static/jquery-1.9.1.min.js"></script>
+    {% endblock %}
+</head>
+{% block navbar %}
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="navbar-brand">@Vpersie9</span>
+                 </div>
+                <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#">Python</a></li>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">Linux</a></li>
+                    <li><a href="#">豆瓣精选</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        {% block page_content %}{% endblock %}
+    </div>
+{% endblock %}
+</html>
